@@ -23,7 +23,7 @@ jobs:
             rm -rf /var/www/html/demo/*
 
       - name: copy files to ec2
-        uses: appleboy/scp-actions@v0.1.4
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           username: ubuntu
