@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Demo Site</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#">DeployDemo</a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#status">Status</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">GitHub Actions to EC2</p>
+        <h1>Simple Static Website for CI/CD Practice</h1>
+        <p class="hero-copy">
+          This lightweight site is ready to push to GitHub and deploy to an EC2
+          instance with your own GitHub Actions workflow.
+        </p>
+        <a class="button" href="#pipeline">View Deployment Steps</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-header">
+        <p class="eyebrow">Project</p>
+        <h2>What This Site Includes</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Static Files</h3>
+          <p>No build process is required. Deploy the files directly with SCP, rsync, or your preferred release step.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Responsive Layout</h3>
+          <p>The page works on desktop and mobile, which makes it easy to verify after each deployment.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Visible Version</h3>
+          <p>Update the release label below whenever you want to confirm that a new deployment reached your server.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pipeline" class="section section-muted">
+      <div class="section-header">
+        <p class="eyebrow">Workflow</p>
+        <h2>Suggested CI/CD Flow</h2>
+      </div>
+      <ol class="steps">
+        <li>Push changes to your GitHub repository.</li>
+        <li>GitHub Actions runs on the selected branch.</li>
+        <li>The workflow copies these static files to your EC2 web directory.</li>
+        <li>Your EC2 web server serves the updated page.</li>
+      </ol>
+    </section>
+
+    <section id="status" class="section status-panel" aria-live="polite">
+      <div>
+        <p class="eyebrow">Status</p>
+        <h2>Deployment Check</h2>
+        <p>This page was loaded successfully in your browser.</p>
+      </div>
+      <div class="release-box">
+        <span>Current release</span>
+        <strong id="release-version">v1.0.0</strong>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> DeployDemo. Built for CI/CD learning.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
