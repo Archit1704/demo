@@ -12,3 +12,21 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
+      
+      - name: clean demo folder
+        uses: appleboy/ssh-action@v0.1.10
+        with: 
+          host: ${{ secrets.HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            rm -rf /var/www/html/demo/*
+
+      - name: copy files to ec2
+        uses: appleboy/scp-actions@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          source: "./*"
+          target: "/var/www/html/demo"
